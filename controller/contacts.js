@@ -31,8 +31,31 @@ const oneContact = async (req,res) =>{
     //res.send(result[0]);
 }
 
-async function getData(){
-    const result =  await clientDb.db("week2").collection("clients").find();
+const postContact = async (req,res) => {
+
+    //  const newListing = {
+    //     firstName : "ROSA",
+    //     lastName: "None",
+    //     email: "m.a.@yandex.ru",
+    //     favoriteColor: "red",
+    //     birthday: 'June 30'
+    // }
+
+    
+   const newListing = req.body;
+   console.log(newListing);
+
+
+
+
+    const postOne = await clientDb.db("week2").collection('contacts').insertOne(newListing);
+    res.send(`New listing had been created eith id ${postOne.insertedId}`)
+    console.log(`New listing had been created eith id ${postOne.insertedId}`);
+    return postOne;
 }
 
-module.exports = { db, allContacts, oneContact};
+
+
+
+
+module.exports = { db, allContacts, oneContact, postContact};

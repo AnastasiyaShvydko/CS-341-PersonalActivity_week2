@@ -10,14 +10,14 @@ async function apiFetch(url) {
 
 
   const getAll = async () => {
-    const data = await apiFetch('http://localhost:3000/all_contacts');
+    const data = await apiFetch('http://localhost:3001/all_contacts');
     data.forEach((element) => {
         displayAllData(element);
         console.log("hehe", element);
     });
 }
     const getOne = async () => {
-        const data = await apiFetch('http://localhost:3000/one_contact');
+        const data = await apiFetch('http://localhost:3001/one_contact');
         //const dataArray = Array.from(data);
         //console.log(dataArray);
         
@@ -103,18 +103,7 @@ function displayAllData(data){
 
 // }
 
-// function sendInfo() {
-// let firstName = document.getElementById('firstName').value;
-// let lastName = document.getElementById('lastName').value;
-// let email = document.getElementById('email');
-// let favoriteColor = document.getElementById('favoriteColor');
-// let birthday = document.getElementById('birthday');
-// //let myString = `{"firstName" : "${firstName}","lastName": "${lastName}" }`
-// //const client = client.returnClient(); 
-// //let myString = '{"p": 5,"name": "Nastya"}';
-// toJson(myString);  
 
-// }
 
 // //let myString = sendInfo();
 // let button = document.getElementById('send');
@@ -156,5 +145,9 @@ function displayAllData(data){
 // //         // Do something with response.
 // //     } );
 
-getAll();
-getOne();
+
+
+ 
+
+ getAll();
+ getOne();

@@ -3,6 +3,7 @@ var app = express();
 const bodyParser = require('body-parser');
 
 app
+.use(express.urlencoded({extended: false}))
 .use(bodyParser.json())
 .use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -11,5 +12,5 @@ app
 .use ('/', require('./routes/contacts'))
 .use ('/', require('./routes/index'));
 
-const port = process.env.PORT|| 3000;
+const port = process.env.PORT|| 3001;
 app.listen(port, ()=>{console.log(`Server is running on port ${port}`)});
