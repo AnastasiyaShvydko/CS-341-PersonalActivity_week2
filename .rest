@@ -1,9 +1,9 @@
-GET http://localhost:3001/
-
+GET http://localhost:3001/database HTTP/1.1
 ###
-GET http://localhost:3001/all_contacts
-
-
+GET http://localhost:3001/  HTTP/1.1
 ###
-
-GET http://localhost:3001/one_contact
+GET http://localhost:3001/all_contacts HTTP/1.1
+###
+GET http://localhost:3001/one_contact HTTP/1.1
+###
+GET https://week-2-new.onrender.com HTTP/1.1
