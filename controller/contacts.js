@@ -16,19 +16,14 @@ const allContacts = async (req,res) =>{
     await clientDb.connect();
     const result =  clientDb.db("week2").collection("contacts").find();
     dataArray = await result.toArray();
-    //console.log(dataArray)
     res.send(dataArray);
-    //console.log(result);
 }
 
 const oneContact = async (req,res) =>{
     await clientDb.connect();
     const result = clientDb.db("week2").collection("contacts").find({_id :new ObjectId("650dd38b45d3ca74e03796ed")});
     dataArray = await result.toArray();
-    //console.log(dataArray)
     res.send(dataArray[0]);
-    console.log('hoho', dataArray[0]);
-    //res.send(result[0]);
 }
 
 const postContact = async (req,res) => {
@@ -42,20 +37,42 @@ const postContact = async (req,res) => {
     // }
 
     
-   const newListing = req.body;
-   console.log(newListing);
+const newListing = req.body;
+const postOne = await clientDb.db("week2").collection('contacts').insertOne(newListing);
+res.status(201).send(`Status: ${res.statusCode}.New listing had been created eith id ${postOne.insertedId}`);
+}
 
+const putContact = async (req,res) =>{
+    const userId = new ObjectId(req.params.id);
+//     const contact = {
+// //         "firstName": "LISA",
+// //         "lastName": "MONO",
+// //         "email": "nn@ii.com",
+// //         "favoriteColor": "red",
+// //         "birthday": "20/06/1985"
+// };
 
+    const contact = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        favoriteColor: req.body.favoriteColor,
+        birthday: req.body.birthday
+      };
+    await clientDb.connect();
+    const result = await clientDb.db("week2").collection("contacts").replaceOne({ _id: userId}, contact);
+    res.status(204).send('ok');
+    
+}
 
-
-    const postOne = await clientDb.db("week2").collection('contacts').insertOne(newListing);
-    res.send(`New listing had been created eith id ${postOne.insertedId}`)
-    console.log(`New listing had been created eith id ${postOne.insertedId}`);
-    return postOne;
+const deleteContact = async (req,res) =>{
+    const userId = new ObjectId(req.params.id);
+    await clientDb.connect();
+    const result = clientDb.db("week2").collection("contacts").deleteOne({ _id: userId});
+    res.send(`Status: ${res.statusCode}. Contasct with ID ${userId} was deleted `)
 }
 
 
 
 
-
-module.exports = { db, allContacts, oneContact, postContact};
+module.exports = { db, allContacts, oneContact, postContact, putContact, deleteContact};

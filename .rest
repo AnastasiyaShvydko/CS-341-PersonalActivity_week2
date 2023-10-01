@@ -6,4 +6,33 @@ GET http://localhost:3001/all_contacts HTTP/1.1
 ###
 GET http://localhost:3001/one_contact HTTP/1.1
 ###
-GET https://week-2-new.onrender.com HTTP/1.1
+GET https://week-2-new.onrender.com/one_contact  HTTP/1.1
+
+
+###
+POST http://localhost:3001/post_contact HTTP/1.1
+content-type: application/json
+
+{
+        "firstName": "Olga",
+        "lastName": "Dolbneva",
+        "email": "nn@ii.com",
+        "favoriteColor": "purple",
+        "birthday": "20/06/1985"
+}
+
+
+###
+PUT http://localhost:3001/contacts/6518c829a3da5f01be62cda4 HTTP/1.1
+content-type: application/json
+
+{
+        "firstName": "Helen",
+        "lastName": "Jhons",
+        "email": "nn@ii.com",
+        "favoriteColor": "red",
+        "birthday": "20/06/1985"
+}
+
+###
+DELETE http://localhost:3001/delete_contact/6518c829a3da5f01be62cda4 HTTP/1.1

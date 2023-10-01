@@ -13,7 +13,7 @@ async function apiFetch(url) {
     const data = await apiFetch('http://localhost:3001/all_contacts');
     data.forEach((element) => {
         displayAllData(element);
-        console.log("hehe", element);
+        //console.log("hehe", element);
     });
 }
     const getOne = async () => {
@@ -27,25 +27,46 @@ async function apiFetch(url) {
     //displayAllData(data);
 
   };
+
+
   function displayOne(data){
+  
     let parent = document.getElementById('parent1');
     let newUl = document.createElement('ul');
+    let id = document.createElement('li');
+    id.id = "id";
     let firstName = document.createElement('li');
+    firstName.id = "firstName";
     let lastName = document.createElement('li');
+    lastName.id = "lastName";
     let email = document.createElement('li');
+    email.id = "email";
     let favoriteColor = document.createElement('li');
+    favoriteColor.id = "favoriteColor";
     let birthday = document.createElement('li');
+    birthday.id = "birthday";
+    id.innerHTML = data._id;
     firstName.innerHTML = data.firstName;
     lastName.innerHTML = data.lastName;
     email.innerHTML = data.email;
     favoriteColor.innerHTML = data.favoriteColor;
     birthday.innerHTML = data.birthday;
+    newUl.appendChild(id);
     newUl.appendChild(firstName);
     newUl.appendChild(lastName);
     newUl.appendChild(email);
     newUl.appendChild(favoriteColor);
     newUl.appendChild(birthday);
-    parent.appendChild(newUl);}
+    parent.appendChild(newUl);
+
+    let buttonChange = document.createElement('button');
+    buttonChange.innerText = "Change";
+    parent.appendChild(buttonChange);
+    buttonChange.id = "change";
+    //addL();
+    buttonChange.addEventListener('click', changeElement);
+}
+
 
 function displayAllData(data){
     let parent = document.getElementById('parent2');
@@ -74,6 +95,38 @@ function displayAllData(data){
     // displayBirthDay(data);
 }
 
+// function addL(){
+// let buttonChange = document.getElementById('change');
+// buttonChange.addEventListener('click', changeElement);}
+
+ async function changeElement(event){
+    event.preventDefault();
+    let id = document.getElementById('id').innerHTML;
+    let firstName = document.getElementById('firstName').innerHTML;
+    let lastName = document.getElementById('lastName').innerHTML;
+    let email = document.getElementById('email').innerHTML;
+    let favoriteColor = document.getElementById('favoriteColor').innerHTML;
+    let birthday = document.getElementById('birthday').innerHTML;
+    let dataJSON = JSON.stringify({
+        _id: id,
+        firstName: firstName,
+           lastName: lastName,
+           email: email,
+           favoriteColor: favoriteColor,
+           birthday: birthday,
+      });
+     const data = await fetch("http://localhost:3001/put_contact",
+    {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: dataJSON
+      }
+    )
+ 
+
+    console.log(dataJSON);
+
+}
 
 // function displayFirstName(data){
 //     let firstName = document.getElementById('firstName');
