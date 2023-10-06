@@ -8,7 +8,7 @@ route.get('/database', getContacts.db );
 
 route.get('/all_contacts', getContacts.allContacts );
 
-route.get('/one_contact', getContacts.oneContact );
+route.get('/one_contact/:id', getContacts.oneContact );
 
 route.post('/post_contact', getContacts.postContact );
 

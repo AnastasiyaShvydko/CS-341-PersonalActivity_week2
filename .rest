@@ -1,16 +1,28 @@
-GET http://localhost:3001/database HTTP/1.1
+GET http://localhost:8080/database HTTP/1.1
 ###
-GET http://localhost:3001/  HTTP/1.1
+GET http://localhost:8080/  HTTP/1.1
 ###
-GET http://localhost:3001/all_contacts HTTP/1.1
+GET http://localhost:8080/all_contacts HTTP/1.1
 ###
-GET http://localhost:3001/one_contact HTTP/1.1
+GET http://localhost:8080/one_contact HTTP/1.1
 ###
-GET https://week-2-new.onrender.com/one_contact  HTTP/1.1
+GET https://new-week2.onrender.com/one_contact/650dd48ee0c792b15e838fbc HTTP/1.1
 
 
 ###
-POST http://localhost:3001/post_contact HTTP/1.1
+GET https://new-week2.onrender.com/post_contact  HTTP/1.1
+content-type: application/json
+
+{
+        "firstName": "Olga",
+        "lastName": "Dolbneva",
+        "email": "nn@ii.com",
+        "favoriteColor": "purple",
+        "birthday": "20/06/1985"
+}
+
+###
+POST http://localhost:8080/post_contact HTTP/1.1
 content-type: application/json
 
 {

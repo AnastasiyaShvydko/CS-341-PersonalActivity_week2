@@ -10,14 +10,14 @@ async function apiFetch(url) {
 
 
   const getAll = async () => {
-    const data = await apiFetch('http://localhost:3001/all_contacts');
+    const data = await apiFetch('http://localhost:8080/all_contacts');
     data.forEach((element) => {
         displayAllData(element);
         //console.log("hehe", element);
     });
 }
     const getOne = async () => {
-        const data = await apiFetch('http://localhost:3001/one_contact');
+        const data = await apiFetch('http://localhost:8080/one_contact');
         //const dataArray = Array.from(data);
         //console.log(dataArray);
         
@@ -115,7 +115,7 @@ function displayAllData(data){
            favoriteColor: favoriteColor,
            birthday: birthday,
       });
-     const data = await fetch("http://localhost:3001/put_contact",
+     const data = await fetch("http://localhost:8080/put_contact",
     {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },

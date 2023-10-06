@@ -20,8 +20,9 @@ const allContacts = async (req,res) =>{
 }
 
 const oneContact = async (req,res) =>{
+    const userId = new ObjectId(req.params.id);
     await clientDb.connect();
-    const result = clientDb.db("week2").collection("contacts").find({_id :new ObjectId("650dd38b45d3ca74e03796ed")});
+    const result = clientDb.db("week2").collection("contacts").find({_id : userId});
     dataArray = await result.toArray();
     res.send(dataArray[0]);
 }
