@@ -6,14 +6,14 @@ const getContacts = require ('../controller/contacts');
 
 route.get('/database', getContacts.db );
 
-route.get('/all_contacts', getContacts.allContacts );
+route.get('/contacts', getContacts.allContacts );
 
-route.get('/one_contact/:id', getContacts.oneContact );
+route.get('/contacts/:id', getContacts.oneContact );
 
-route.post('/post_contact', getContacts.postContact );
+route.post('/contacts', getContacts.postContact );
 
 route.put('/contacts/:id', getContacts.putContact);
 
-route.delete('/delete_contact/:id', getContacts.deleteContact );
+route.delete('/contacts/:id', getContacts.deleteContact );
 
 module.exports = route;

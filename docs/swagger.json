@@ -21,7 +21,7 @@
         }
       }
     },
-    "/all_contacts": {
+    "/contacts": {
       "get": {
         "description": "",
         "responses": {
@@ -29,9 +29,17 @@
             "description": "OK"
           }
         }
+      },
+      "post": {
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
       }
     },
-    "/one_contact/{id}": {
+    "/contacts/{id}": {
       "get": {
         "description": "",
         "parameters": [
@@ -47,19 +55,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/post_contact": {
-      "post": {
-        "description": "",
-        "responses": {
-          "201": {
-            "description": "Created"
-          }
-        }
-      }
-    },
-    "/contacts/{id}": {
+      },
       "put": {
         "description": "",
         "parameters": [
@@ -99,9 +95,7 @@
             "description": "No Content"
           }
         }
-      }
-    },
-    "/delete_contact/{id}": {
+      },
       "delete": {
         "description": "",
         "parameters": [

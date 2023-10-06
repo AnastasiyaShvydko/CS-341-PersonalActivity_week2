@@ -2,11 +2,11 @@ GET http://localhost:8080/database HTTP/1.1
 ###
 GET http://localhost:8080/  HTTP/1.1
 ###
-GET http://localhost:8080/all_contacts HTTP/1.1
+GET http://localhost:8080/contacts HTTP/1.1
 ###
-GET http://localhost:8080/one_contact HTTP/1.1
+GET http://localhost:8080/contacts/650dd48ee0c792b15e838fbc HTTP/1.1
 ###
-GET https://new-week2.onrender.com/one_contact/650dd48ee0c792b15e838fbc HTTP/1.1
+GET https://new-week2.onrender.com/contacts/650dd48ee0c792b15e838fbc HTTP/1.1
 
 
 ###
@@ -22,7 +22,7 @@ content-type: application/json
 }
 
 ###
-POST http://localhost:8080/post_contact HTTP/1.1
+POST http://localhost:8080/contacts HTTP/1.1
 content-type: application/json
 
 {
@@ -35,7 +35,7 @@ content-type: application/json
 
 
 ###
-PUT http://localhost:3001/contacts/6518c829a3da5f01be62cda4 HTTP/1.1
+PUT http://localhost:8080/contacts/6518c829a3da5f01be62cda4 HTTP/1.1
 content-type: application/json
 
 {
@@ -47,4 +47,4 @@ content-type: application/json
 }
 
 ###
-DELETE http://localhost:3001/delete_contact/6518c829a3da5f01be62cda4 HTTP/1.1
+DELETE http://localhost:8080/contacts/6518c829a3da5f01be62cda4 HTTP/1.1
