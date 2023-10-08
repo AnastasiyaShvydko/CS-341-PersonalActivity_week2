@@ -10,7 +10,7 @@ GET https://new-week2.onrender.com/contacts/650dd48ee0c792b15e838fbc HTTP/1.1
 
 
 ###
-GET https://new-week2.onrender.com/post_contact  HTTP/1.1
+GET https://new-week2.onrender.com/contacts  HTTP/1.1
 content-type: application/json
 
 {
@@ -46,5 +46,16 @@ content-type: application/json
         "birthday": "20/06/1985"
 }
 
+###
+PUT https://new-week2.onrender.com/contacts/6518c6d688fbce01c709a8a6 HTTP/1.1
+content-type: application/json
+
+{
+        "firstName": "NINA",
+        "lastName": "Jhons",
+        "email": "nn@ii.com",
+        "favoriteColor": "red",
+        "birthday": "20/06/1985"
+}
 ###
 DELETE http://localhost:8080/contacts/6518c829a3da5f01be62cda4 HTTP/1.1
